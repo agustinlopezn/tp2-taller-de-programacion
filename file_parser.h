@@ -6,19 +6,25 @@
 #include <unordered_map>
 #include <map>
 #include <algorithm>
-
-/* Excepciones */
-struct FileParserException : std::exception {
-    const char *what();
-};
+#include <mutex>
+#include "thread.h"
+#include "files.h"
 
 class FileParser {
  private:
     int line;
     std::ifstream file;
+    // std::map<std::string, std::vector<std::string>> instructions;
+    std::string actualFile;
+    Files &files;
+    std::mutex m;
+
+
  public:
-    explicit FileParser(const std::string file_name);
-    void getInstructions(std::map<std::string, std::vector<std::string>> &instructions, std::string &buffer);
-    bool getInstruction(std::string &buffer);
+    FileParser(const char *filesNames[], Files &files);
+    bool areFilesToProcces();
+    std::string proccessedFile();
+    void getInstructions(std::string &buffer, std::map<std::string, std::vector<std::string>> &instructions);
+    // void run();
     ~FileParser();
 };

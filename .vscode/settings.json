@@ -46,6 +46,12 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "unordered_set": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp",
+        "ctime": "cpp",
+        "ratio": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp"
     }
 }

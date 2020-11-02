@@ -9,7 +9,9 @@ class Graph {
     // Adjacency list implementation
  private:
     std::map <std::string, std::list<std::string>> map;
-    bool _dfsDetectCycle(std::string v, std::unordered_set <std::string> &parents, std::unordered_set <std::string>&visited);
+    bool _dfsDetectCycle(std::string v,
+                        std::unordered_set <std::string> &parents,
+                        std::unordered_set <std::string>&visited);
  public:
     void print();
     Graph();
