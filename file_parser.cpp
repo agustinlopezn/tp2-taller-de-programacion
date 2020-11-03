@@ -10,7 +10,6 @@ bool FileParser::areFilesToProcces() {
 
 std::string FileParser::proccessedFile() {
     return this->actualFile;
-    // return this->files.actualFile();
 }
 
 void FileParser::getInstructions(std::string &buffer,
@@ -36,8 +35,8 @@ void FileParser::getInstructions(std::string &buffer,
         }
         if (buffer.compare("") != 0) {
             instructions_aux[std::to_string(this->line)].push_back(buffer);
+            ++this->line;
         }
-        ++this->line;
     }
     this->file.close();
     for (auto &instr : instructions_aux) {

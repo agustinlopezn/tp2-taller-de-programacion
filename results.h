@@ -9,7 +9,8 @@ class Results {
     std::mutex m;
  public:
     Results();
-    void addResult(std::string fileName, bool isCyclic, bool unusedInstr);
+    void addResult(const std::string &fileName,
+                bool isCyclic, bool unusedInstr);
     void print();
     ~Results();
 };

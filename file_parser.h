@@ -24,7 +24,8 @@ class FileParser {
     FileParser(const char *filesNames[], Files &files);
     bool areFilesToProcces();
     std::string proccessedFile();
-    void getInstructions(std::string &buffer, std::map<std::string, std::vector<std::string>> &instructions);
+    void getInstructions(std::string &buffer,
+                std::map<std::string, std::vector<std::string>> &instructions);
     // void run();
     ~FileParser();
 };

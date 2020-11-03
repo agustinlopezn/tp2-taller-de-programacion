@@ -9,8 +9,8 @@ class Digraph {
  private:
     std::map <std::string, std::list<std::string>> map;
     bool _isCyclic(std::string v,
-                       std::unordered_set <std::string> &parents,
-                       std::unordered_set <std::string>&visited);
+                std::unordered_set <std::string> &parents,
+                std::unordered_set <std::string>&visited);
     void _dfs(std::string v, std::unordered_set <std::string> &visited);
  public:
     Digraph();

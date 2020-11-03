@@ -7,7 +7,8 @@
 
 Results::Results() {}
 
-void Results::addResult(std::string fileName, bool isCyclic, bool unusedInstr) {
+void Results::addResult(const std::string &fileName,
+                    bool isCyclic, bool unusedInstr) {
     Lock l(m);
     if (isCyclic) {
         results.push_back(fileName + CYCLIC_MESSAGE);
