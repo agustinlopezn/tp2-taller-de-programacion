@@ -1,11 +1,10 @@
 #include "ebpf.h"
 
-eBPF::eBPF(const char *filesNames[], Results &results, Files &files) :
-        filesNames(filesNames), results(results), files(files) {}
-
+eBPF::eBPF(Results &results, Files &files) :
+        results(results), files(files) {}
 
 void eBPF::run() {
-    FileParser fileParser(filesNames, files);
+    FileParser fileParser(files);
     std::string buffer;
     while (fileParser.areFilesToProcces()) {
         Digraph graph;

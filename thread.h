@@ -19,4 +19,5 @@ class Thread {
     Thread(Thread&& other);
     Thread& operator=(Thread&& other);
 };
+
 #endif  // THREAD_H_

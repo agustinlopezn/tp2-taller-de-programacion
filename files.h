@@ -1,3 +1,5 @@
+#ifndef __FILES_H
+#define __FILES_H
 #include <list>
 #include <string>
 #include <mutex>
@@ -5,7 +7,6 @@
 
 class Files {
  private:
-    // std::list <std::ifstream> files;
     const char **files;
     size_t i;
     std::list <std::string> filesNames;
@@ -17,3 +18,5 @@ class Files {
     std::string getFile(std::ifstream &file);
     ~Files();
 };
+
+#endif  // FILES_H_

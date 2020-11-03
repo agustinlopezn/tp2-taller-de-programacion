@@ -20,7 +20,6 @@ void Results::addResult(const std::string &fileName,
 }
 
 void Results::print() {
-    Lock l(m);
     results.sort();
     for (auto &result : results) {
         std::cout << result << std::endl;

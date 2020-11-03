@@ -1,3 +1,6 @@
+#ifndef __RESULTS_H
+#define __RESULTS_H
+
 #include <mutex>
 #include <list>
 #include <iostream>
@@ -9,8 +12,13 @@ class Results {
     std::mutex m;
  public:
     Results();
+    // Adds the result of a file and prepares the output based on the
+    // booleans values
     void addResult(const std::string &fileName,
                 bool isCyclic, bool unusedInstr);
+    // Prints all the results to stdout
     void print();
     ~Results();
 };
+
+#endif  // RESULTS_H_

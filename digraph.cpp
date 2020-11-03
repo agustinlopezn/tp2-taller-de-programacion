@@ -7,19 +7,20 @@ void Digraph::addEdge(std::string x, std::string y) {
     this->map[x].push_back(y);
 }
 
-void Digraph::_dfs(std::string v, std::unordered_set <std::string>&visited) {
+void Digraph::_isAConnectedGraph(std::string v,
+                std::unordered_set <std::string>&visited) {
     std::list<std::string> ady = this->map[v];
     visited.insert(v);
     for (auto &w : ady) {
         if (visited.find(w) == visited.end()) {
-            _dfs(w, visited);
+            _isAConnectedGraph(w, visited);
         }
     }
 }
 
 bool Digraph::isAConnectedGraph() {
     std::unordered_set <std::string> visited;
-    _dfs(this->map.begin()->first, visited);
+    _isAConnectedGraph(this->map.begin()->first, visited);
     return visited.size() >= this->map.size();
 }
 

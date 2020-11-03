@@ -16,7 +16,7 @@ int main(int argc, const char *argv[]) {
     Files files(&argv[FILES_INITIAL_POS]);
     int threads_num = atoi(argv[THR_QNT_POS]);
     for (int i = 0; i < threads_num; ++i) {
-        threads.push_back(new eBPF(&argv[FILES_INITIAL_POS], results, files));
+        threads.push_back(new eBPF(results, files));
     }
 
     for (int i = 0; i < threads_num; ++i) {

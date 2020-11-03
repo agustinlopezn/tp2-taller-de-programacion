@@ -1,3 +1,6 @@
+#ifndef __EBPF_H
+#define __EBPF_H
+
 #include <string>
 #include <map>
 #include <vector>
@@ -7,12 +10,12 @@
 
 class eBPF : public Thread{
  private:
-    const char **filesNames;
     Results &results;
     Files &files;
  public:
-    explicit eBPF(const char *filesNames[], Results &results, Files &files);
+    eBPF(Results &results, Files &files);
     void run() override;
-    std::ifstream getFile();
     ~eBPF();
 };
+
+#endif  // EBPF_H_
