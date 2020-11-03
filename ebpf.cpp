@@ -11,11 +11,9 @@ void eBPF::run() {
         Digraph graph;
         std::map<std::string, std::vector<std::string>> instructions;
         fileParser.getInstructions(buffer, instructions);
-        std::cout << fileParser.proccessedFile() << std::endl;
         for (auto instr : instructions) {
             for (auto &line : instr.second) {
                 graph.addEdge(instr.first, line);
-                std::cout << instr.first << "->" << line << std::endl;
            }
         }
         results.addResult(fileParser.proccessedFile(),
