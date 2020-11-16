@@ -4,18 +4,22 @@ eBPF::eBPF(Results &results, Files &files) :
         results(results), files(files) {}
 
 void eBPF::run() {
-    FileParser fileParser(files);
+    FileParser fileParser;
     std::string buffer;
-    while (fileParser.areFilesToProcces()) {
+    std::string fileName;
+    while (files.getFileIfExists(fileName)) {
         Digraph graph;
         std::map<std::string, std::vector<std::string>> instructions;
-        fileParser.getInstructions(buffer, instructions);
+        this->proccessedFile = fileName;
+        std::ifstream file(fileName);
+        fileParser.getInstructions(buffer, instructions, file);
         for (auto instr : instructions) {
             for (auto &line : instr.second) {
                 graph.addEdge(instr.first, line);
            }
         }
-        results.addResult(fileParser.proccessedFile(),
+        file.close();
+        results.addResult(this->proccessedFile,
                         graph.isCyclic(), !graph.isAConnectedGraph());
     }
 }

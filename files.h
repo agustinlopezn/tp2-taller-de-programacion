@@ -9,13 +9,15 @@ class Files {
  private:
     const char **files;
     size_t i;
-    std::list <std::string> filesNames;
     std::mutex m;
  public:
+    // Stores files in the atributes of the class
     explicit Files(const char *files[]);
-    std::string actualFile();
-    bool areFilesToProcces();
-    std::string getFile(std::ifstream &file);
+
+    // Returns true if there is a valid file and modifies fileName, returns
+    // false in other case and doesnt modifies the fileName
+    bool getFileIfExists(std::string &fileName);
+
     ~Files();
 };
 

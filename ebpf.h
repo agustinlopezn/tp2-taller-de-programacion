@@ -12,9 +12,16 @@ class eBPF : public Thread{
  private:
     Results &results;
     Files &files;
+    std::string proccessedFile;
  public:
+    // Constructor that receives the shared resources
+    // and stores it as members of the class
     eBPF(Results &results, Files &files);
+
+    // Iterates all the files, parses its lines, adds the information
+    // to a graph and puts the result in results
     void run() override;
+
     ~eBPF();
 };
 

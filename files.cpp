@@ -6,24 +6,14 @@ Files::Files(const char *files[]) {
     this->files = files;
 }
 
-bool Files::areFilesToProcces() {
+bool Files::getFileIfExists(std::string &fileName) {
     Lock l(m);
-    return this->files[i];
-}
-
-std::string Files::actualFile() {
-    Lock l(m);
-    return this->files[i-1];
-}
-
-std::string Files::getFile(std::ifstream &file) {
-    Lock l(m);
-    if (files[i]) {
-        file.open(files[i]);
-        filesNames.push_back(files[i]);
+    if (files[i])
         ++i;
-    }
-    return this->files[i-1];
+    else
+        return false;
+    fileName = this->files[i-1];
+    return true;
 }
 
 Files::~Files() {
