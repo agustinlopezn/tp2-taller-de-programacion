@@ -17,9 +17,11 @@ class Digraph {
                 std::unordered_set <std::string> &parents,
                 std::unordered_set <std::string>&visited);
 
-    // Recursive method of isAConnectedGraph, private so no one can call it from outside
+    // Recursive method of isAConnectedGraph
+    // private so no one can call it from outside
     void _isAConnectedGraph(std::string v,
                 std::unordered_set <std::string> &visited);
+
  public:
     // Constructor and destructor
     Digraph();
